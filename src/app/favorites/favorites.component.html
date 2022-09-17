@@ -1,0 +1,37 @@
+
+<div style="text-align:center">
+    <h1 class="display-5 mt-3 mb-5">Favorites ({{ favstoreService.getNumberOfStoredJokes() }})</h1>
+</div>
+
+<blockquote class="blockquote text-center border border-primary p-3"
+            *ngFor="let joke of favstoreService.getAllJokes()">
+
+  <button type="button" class="close" aria-label="Close"
+          (click)="onButtonRemoveFromFavoritesById( joke.getID() )">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <p class="mb-0">{{ joke.getText() }}</p>
+
+  <footer class="blockquote-footer">
+      Fact no {{ joke.getID() }} from <i>icndb.com</i>
+      <span *ngIf="joke.getHasCategoryNerdy()">, categorized as "nerdy"</span>
+      <span *ngIf="joke.getHasCategoryExplicit()">, categorized as "explicit"</span>.
+  </footer>
+
+</blockquote>
+
+<div style="text-align:center" *ngIf="favstoreService.getNumberOfStoredJokes() === 0">
+        <h1 class="display-5 mt-3 mb-5">Currently no jokes are stored as favorites</h1>
+</div>
+
+<button type="button"
+        routerLink="/delfavs"
+        *ngIf="favstoreService.getNumberOfStoredJokes() > 0"
+        class="btn btn-danger btn-lg btn-block mt-5">Delete all favorites ...</button>
+
+<div class="my-5"></div>
+
+<button type="button"
+        routerLink="/"
+        class="btn btn-success btn-lg btn-block my-5">Go back to fetch new jokes</button>

@@ -1,0 +1,35 @@
+<div style="text-align:center">
+  <h1 class="display-5 mt-3 mb-5">Fetch the jokes</h1>
+</div>
+
+<button type="button"
+        class="btn btn-primary btn-lg btn-block mt-5"
+        (click)="showNextJoke()">Show next joke</button>
+
+
+<div class="jumbotron mt-5" *ngIf="jokeObj != null && jokeObj.isFilled()">
+  <h4>{{ jokeObj.getText() }}</h4>
+  <br>
+  <span class="badge badge-info" *ngIf="jokeObj.getHasCategoryNerdy()"   >Nerdy</span>
+  <span class="badge badge-info" *ngIf="jokeObj.getHasCategoryExplicit()">Explicit</span>
+  <br><br>
+  <button type="button"
+          class="btn btn-warning"
+          *ngIf="showAddToFavoritesButton"
+          (click)="onButtonSaveJoke()">Save as favorite</button>
+  <button type="button"
+          class="btn btn-danger"
+          *ngIf="showRemoveFromFavoritesButton"
+          (click)="onButtonRemoveFromFavorites()">Remove from favorites</button>
+</div>
+
+
+<div class="mt-5 alert alert-warning" role="alert" *ngIf="showNoJokesWarning">
+  No jokes available; try again in a few seconds.
+</div>
+
+<br><br>
+
+<button type="button"
+        routerLink="/favs"
+        class="btn btn-success btn-lg btn-block mb-5">Go to favorites ( {{ favstoreService.getNumberOfStoredJokes() }} )</button>

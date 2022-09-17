@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { IcndbService } from './services/icndb.service'; 
+import { FavstoreService } from './services/favstore.service'; 
+import { Joke } from './joke';
+
 
 @Component({
-  selector: 'app-root',
+  selector: 'mide-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styles: []
 })
-export class AppComponent {
-  title = 'ang-icndb';
-}
+export class AppComponent {}
+

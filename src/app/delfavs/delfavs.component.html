@@ -1,0 +1,11 @@
+<div style="text-align:center">
+    <h1 class="display-5 mt-3 mb-5">Do you really want to delete all ({{ favstoreService.getNumberOfStoredJokes() }}) favorites?</h1>
+</div>
+
+<button type="button"
+        (click)="onButtonDeleteAllFavorites()"        
+        class="btn btn-danger btn-lg btn-block my-5">Yes, go ahead</button>
+
+<button type="button"
+        routerLink="/favs"
+        class="btn btn-secondary btn-lg btn-block my-5">No way</button>

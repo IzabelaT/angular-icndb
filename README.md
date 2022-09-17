@@ -1,3 +1,6 @@
+# Angular application to fetch Chuck Norris facts from icndb.com #
+All information get from the REST-API provided by [icndb.com](http://www.icndb.com/).
+
 # AngIcndb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
